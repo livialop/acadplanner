@@ -1,14 +1,18 @@
 from sqlalchemy import String, Integer, Column, ForeignKey, Date
 from sqlalchemy import create_engine
 from sqlalchemy.orm import relationship, mapped_column
-from sqlalchemy.orm import DeclarativeBase, Mapped, Session
-from typing import List
+from sqlalchemy.orm import DeclarativeBase, Mapped
+from sqlalchemy_utils import database_exists, create_database
+from config.config_database import USER, HOST, PORT, DATABASE, PASSWORD
 from flask_login import UserMixin
-from models.config_database import USER, HOST, PORT, DATABASE, PASSWORD
+from typing import List
 from datetime import date
 
 engine = create_engine(f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}")
-session = Session(engine)
+
+# Cria o banco de dados caso não exista
+if not database_exists(engine.url):
+    create_database(engine.url)
 
 
 class Base(DeclarativeBase, UserMixin):
@@ -16,6 +20,7 @@ class Base(DeclarativeBase, UserMixin):
 
 
 class User(Base):
+    # Tabela de usuários
     __tablename__ = "user"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
@@ -28,6 +33,7 @@ class User(Base):
 
 
 class Relevancia(Base):
+    # Tabela de domínio para relevância dos eventos
     __tablename__ = "relevancia"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
@@ -37,6 +43,7 @@ class Relevancia(Base):
 
 
 class TipoEvento(Base):
+    # Tabela de domínio para tipos de eventos
     __tablename__ = "tipo_evento"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
@@ -46,6 +53,7 @@ class TipoEvento(Base):
 
 
 class DataEvento(Base):
+    # Tabela de eventos (datas)
     __tablename__ = "data_evento"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)

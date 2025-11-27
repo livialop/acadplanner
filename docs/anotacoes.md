@@ -1,16 +1,12 @@
-# Informações relevantes sobre o repositório
+# Anotações sobre o repositório
 
-## Como navegar pelo repositório
-* No diretório `/src` está contido todos os códigos da aplicação. 
-    * `/src/config` -> Configuração do banco de dados.
-    * `/src/controllers` -> Blueprints da aplicação.
-        * `auth` -> Blueprint com rotas de login, registro e logout.
-        * `error` -> Blueprint com rotas de error handlers (404, etc). 
-        * `main` -> Blueprint com a rota home da aplicação.
-> [!IMPORTANT]
-> Se precisar mudar alguma coisa referente a porta do banco de dados, user, host e senha, é no arquivo `/src/config/__init__.py` que você deve fazer a alteração. 
+## Anotações sobre o Templates
+* Verificar as rotas python antes de implementar os formulários nos templates.
 
-* O banco de dados está contido no diretório `/model`
-* O diretório `/static` possui subdiretórios referentes ao estilo (`style`) e imagens.
-* O diretório `/templates` é onde está localizado os arquivos HTML da aplicação.
-* O arquivo `app.py` é o aplicativo onde todos os Blueprints são registrados e assim, a aplicação é executada.
+## Anotações sobre o Backend
+* Verificar as rotas de eventos. Não sei se soube fazer direito a implementação do CRUD com o sqlalchemy.
+* Rota de auth está implementada.
+
+## Outros
+* Verificar a possibilidade de executar a aplicação e o banco de dados ser criado automaticamente, sem precisar abrir o Workbench e criar o schema manualmente. -> FEITO.
+* Dá para retirar a repetição de add e update livro (form) fazendo função para isso. Checar a possibilidade depois.

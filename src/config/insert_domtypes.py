@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 def insert_relevancia(engine):
     with Session(engine) as session:
-        niveis_relevancia = [
+        niveis_relevancia: list[Relevancia] = [
             Relevancia(nivel="Baixa"),
             Relevancia(nivel="Média"),
             Relevancia(nivel="Alta"),
@@ -15,7 +15,7 @@ def insert_relevancia(engine):
 
 def insert_tipo_evento(engine):
     with Session(engine) as session:
-        tipos_evento = [
+        tipos_evento: list[TipoEvento] = [
             TipoEvento(nome="Prova"),
             TipoEvento(nome="Trabalho"),
             TipoEvento(nome="Projeto"),
