@@ -1,0 +1,102 @@
+/* ======== FUNDO ======== */
+body {
+    background: #f5f6fa;  /* fundo claro e moderno */
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: "Inter", sans-serif;
+    background-color: #e5e5f7;
+    
+background-color: #e5e5f7;
+background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 10px ), repeating-linear-gradient( #444cf755, #444cf7 );
+background-color: #e5e5f7;
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+
+
+}
+
+/* ======== CARD ======== */
+.card {
+    width: 450px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.card-header {
+    background: none;
+    border: none;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card-header h4 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #1e293b;
+}
+
+/* ======== INPUTS ======== */
+.form-label {
+    font-weight: 600;
+    color: #475569;
+}
+
+.form-control,
+.form-select {
+    margin-top: 4px;
+    border-radius: 14px;
+    padding: 12px 14px;
+    border: 1px solid #d0d7e3;
+    font-size: 0.95rem;
+    transition: 0.2s;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* ======== BOTÕES ======== */
+.btn-primary {
+    background: #6366f1;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 14px;
+    font-weight: 600;
+    transition: 0.2s;
+    color: #ffffff;
+
+}
+
+.btn-primary:hover {
+    background: #4f46e5;
+}
+
+.btn-secondary {
+    padding: 10px 22px;
+    border-radius: 14px;
+    font-weight: 600;
+    background: #e2e8f0;
+    color: #334155;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background: #cbd5e1;
+}
+
+/* ======== ANIMAÇÃO ======== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
