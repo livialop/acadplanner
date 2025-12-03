@@ -27,6 +27,7 @@
                             <input type="date" class="form-control" id="data" name="data" 
                                    value="{{ event.data.strftime('%Y-%m-%d') if event.data }}" required>
                         </div>
+                        
 
                         <div class="mb-3">
                             <label for="tipo_evento_id" class="form-label">Tipo de Evento</label>
@@ -40,6 +41,7 @@
                                 {% endfor %}
                             </select>
                         </div>
+                         
 
                         <div class="mb-3">
                             <label for="relevancia_id" class="form-label">Nível de Relevância</label>
