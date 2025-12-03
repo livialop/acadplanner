@@ -8,12 +8,15 @@
 {% block content %}
 <div class="main-content">
 
-    <div class="header-area">
+
+    <div class="header">
         <h1>Meus Eventos</h1>
         <a href="{{ url_for('events.events_add') }}" class="add-event-btn enhanced-btn">
             <i class="fas fa-plus"></i> Adicionar Evento
         </a>
     </div>
+
+    
 
     {% if datas %}
     <div class="events-grid extra-margin">
