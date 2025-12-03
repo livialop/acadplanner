@@ -3,3 +3,5 @@ HOST = "127.0.0.1"
 PORT = "3306"
 DATABASE = "acadplanner"
 PASSWORD = "1234"
+
+# asdasdf af

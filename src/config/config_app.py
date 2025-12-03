@@ -4,6 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from flask_login import LoginManager
 from flask import Flask
 
+# aprejndenida
 def config(app: Flask) -> None:
     app.secret_key = 'LASJDHJDWUABBDAWDB@##'
 

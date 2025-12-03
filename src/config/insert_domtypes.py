@@ -1,6 +1,7 @@
 from models import Relevancia, TipoEvento
 from sqlalchemy.orm import Session
 
+# asdadadw
 
 def insert_relevancia(engine):
     with Session(engine) as session:
