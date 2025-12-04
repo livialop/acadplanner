@@ -9,9 +9,29 @@ body {
     font-family: "Inter", sans-serif;
     background-color: #e5e5f7;
     
-    background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#6366f1 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #6366f1 2px, #e5e5f7 2px) -1px 0;
-    background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+   
 }
+/* ======== CABEÇALHO ======== */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #2300A3;            
+    padding: 40px 0;
+    text-align: center;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
 
 /* ======== CARD ======== */
 .card {
@@ -61,7 +81,7 @@ body {
 
 /* ======== BOTÕES ======== */
 .btn-primary {
-    background: #6366f1;
+    background: #2300A3;
     border: none;
     padding: 10px 22px;
     border-radius: 14px;

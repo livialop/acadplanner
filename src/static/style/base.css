@@ -1,0 +1,75 @@
+/* Base styles and variables for the whole site */
+:root {
+  --bg: #F5F7FA;
+  --surface: #ffffff;
+  --accent: #2300A3;
+  --primary-1: #4a73ff;
+  --primary-2: #6c8bff;
+  --muted: #7a8696;
+  --text: #263238;
+  --danger: #d32f2f;
+  --radius: 12px;
+  --shadow-1: 0 6px 18px rgba(9,30,66,0.06);
+}
+
+/* sensible reset */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+}
+
+/* page container to keep content aligned */
+.container, .main-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* accessible visually hidden */
+.visually-hidden { position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+
+/* Generic buttons to keep consistent look */
+.btn {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px;
+  border-radius:8px;
+  font-weight:700;
+  text-decoration:none;
+  cursor:pointer;
+  border: none;
+}
+.btn-primary {
+  background: linear-gradient(90deg,var(--primary-1),var(--primary-2));
+  color: #fff;
+  box-shadow: var(--shadow-1);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--accent);
+}
+
+/* small utilities */
+.muted { color: var(--muted); }
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 16px rgba(9,30,66,0.04);
+}
+
+@media (max-width:720px) {
+  .container, .main-content { padding: 0 16px; }
+}
+
+/* keep forms consistent */
+input, textarea, select, button {
+  font-family: inherit;
+}
