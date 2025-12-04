@@ -1,101 +1,174 @@
-/* ======== FUNDO ======== */
-body {
-    background: #f5f6fa;  /* fundo claro e moderno */
-    min-height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    font-family: "Inter", sans-serif;
-    background-color: #e5e5f7;
-    
-background-color: #e5e5f7;
-background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 10px ), repeating-linear-gradient( #444cf755, #444cf7 );
-background-color: #e5e5f7;
-background-repeat: no-repeat;
-background-size: cover;
-background-attachment: fixed;
-
+:root {
+    --primary-color: #2300A3;
+    --primary-hover: #19007a;
+    --secondary-color: #ccc;
+    --secondary-hover: #b4b4b4;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --border-color: #bbb;
+    --white: #fff;
+    --shadow: 0 0 20px rgba(0,0,0,0.2);
+    --border-radius: 14px;
+    --transition: 0.2s;
 }
 
-/* ======== CARD ======== */
-.card {
-    width: 450px;
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 35px 40px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    border: none;
-    animation: fadeIn 0.3s ease-in-out;
+/* Estilos gerais */
+.main-content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-.card-header {
-    background: none;
-    border: none;
-    margin-bottom: 10px;
-    text-align: center;
+.header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.card-header h4 {
+.header h1 {
+    font-size: 28px;
     font-weight: 700;
-    font-size: 1.8rem;
-    color: #1e293b;
+    color: var(--primary-color);
+    margin-bottom: 15px;
 }
 
-/* ======== INPUTS ======== */
-.form-label {
+/* Container do formulário */
+.form-container {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Grupos de formulário */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
     font-weight: 600;
-    color: #475569;
+    color: var(--primary-color);
+    font-size: 16px;
 }
 
-.form-control,
-.form-select {
-    margin-top: 4px;
-    border-radius: 14px;
-    padding: 12px 14px;
-    border: 1px solid #d0d7e3;
-    font-size: 0.95rem;
-    transition: 0.2s;
+/* Inputs e selects */
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    transition: var(--transition);
+    box-sizing: border-box;
 }
 
-.form-control:focus,
-.form-select:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+.form-container input:focus,
+.form-container select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(35, 0, 163, 0.1);
 }
 
-/* ======== BOTÕES ======== */
-.btn-primary {
-    background: #6366f1;
+/* Botões */
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-cancel {
+    background: var(--secondary-color);
+    color: var(--text-color);
     border: none;
-    padding: 10px 22px;
-    border-radius: 14px;
-    font-weight: 600;
-    transition: 0.2s;
-    color: #ffffff;
-
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
 }
 
-.btn-primary:hover {
-    background: #4f46e5;
+.btn-cancel:hover {
+    background: var(--secondary-hover);
+    text-decoration: none;
+    color: var(--text-color);
 }
 
-.btn-secondary {
-    padding: 10px 22px;
-    border-radius: 14px;
-    font-weight: 600;
-    background: #e2e8f0;
-    color: #334155;
+.btn-submit {
+    background: var(--primary-color);
+    color: var(--white);
     border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.btn-secondary:hover {
-    background: #cbd5e1;
+.btn-submit:hover {
+    background: var(--primary-hover);
 }
 
-/* ======== ANIMAÇÃO ======== */
+/* Ícones */
+.fas {
+    font-size: 14px;
+}
+
+/* Botão de voltar no header */
+.header .btn-cancel {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 8px 16px;
+}
+
+.header .btn-cancel:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-content {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+    
+    .form-container {
+        padding: 20px;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-cancel,
+    .btn-submit {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Animações */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Estilo para mensagens flash */
+.flash-messages {
+    margin-bottom: 20px;
+}

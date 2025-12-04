@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 /* =============================== */
 /*         ESTILO GERAL            */
 /* =============================== */
 
-=======
-/* General */
->>>>>>> refs/remotes/origin/main
 body { 
   background:#F5F7FA; 
   font-family: Arial, Helvetica, sans-serif; 
@@ -13,7 +9,6 @@ body {
 }
 
 .main-content { 
-<<<<<<< HEAD
   padding: 120px 40px 28px;
 }
 
@@ -22,72 +17,26 @@ body {
 /*        CABEÇALHO FIXO          */
 /* =============================== */
 
-=======
-  padding: 120px 40px 28px;  /* empurra o conteúdo para baixo do header fixo */
-}
-
-
-/* Header Area (título + botão) */
-.header-area { 
-  display:flex; 
-  justify-content:space-between; 
-  align-items:center; 
-  gap:12px; 
-  margin-bottom:18px; 
-}
-
-.header-area h1 { 
-  color:#2300A3; 
-  font-weight:900; 
-  margin:0; 
-  font-size:28px; 
-}
-
-
-/* Add button */
-.add-event-btn {
-  background: linear-gradient(90deg,#ffffff,#ffffff);
-  color:#2300A3; 
-  padding:10px 18px; 
-  border-radius:12px; 
-  text-decoration:none; 
-  display:inline-flex;
-  align-items:center; 
-  gap:8px; 
-  font-weight:700; 
-  box-shadow:0 6px 18px rgba(74,115,255,0.18);
-  transition: transform .15s, box-shadow .15s;
-}
-.add-event-btn:hover { 
-  transform: translateY(-3px); 
-  box-shadow:0 10px 30px rgba(74,115,255,0.22); 
-}
-
-
-/* ======== CABEÇALHO FIXO ======== */
->>>>>>> refs/remotes/origin/main
 .header {
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-<<<<<<< HEAD
     background: #2300A3;
     padding: 20px 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
-=======
-    background: #2300A3;            
-  
-  padding: 20px 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: left;
->>>>>>> refs/remotes/origin/main
     z-index: 10;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+.botoes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 3em;
 }
 
 .header h1 {
@@ -96,9 +45,9 @@ body {
     font-weight: 900;
     margin: 0;
     font-family: "Inter", sans-serif;
-}
+    margin-left: 3em;
+  }
 
-<<<<<<< HEAD
 .header .add-event-btn {
     margin-right: 20px;
 }
@@ -133,15 +82,6 @@ body {
 /*              GRID               */
 /* =============================== */
 
-=======
-
-.header .add-event-btn {
-  margin-right: 20px;
-}
-
-
-/* Grid */
->>>>>>> refs/remotes/origin/main
 .events-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
@@ -150,47 +90,31 @@ body {
 }
 
 
-<<<<<<< HEAD
 /* =============================== */
 /*              CARDS              */
 /* =============================== */
 
-=======
-/* Card */
->>>>>>> refs/remotes/origin/main
 .event-card {
   background:#fff; 
   border-radius:12px; 
   padding:14px; 
   box-shadow:0 6px 16px rgba(9,30,66,0.04);
-<<<<<<< HEAD
-=======
-  border-left:6px solid transparent; 
->>>>>>> refs/remotes/origin/main
   display:flex; 
   flex-direction:column; 
   min-height:150px;
   transition: transform .12s, box-shadow .12s;
-<<<<<<< HEAD
   border-left:6px solid transparent; 
+  margin-top: 3em;
 }
 
 /* Hover */
-=======
-}
-
->>>>>>> refs/remotes/origin/main
 .event-card:hover { 
   transform: translateY(-4px); 
   box-shadow:0 10px 24px rgba(9,30,66,0.07); 
 }
 
 
-<<<<<<< HEAD
 /* Título e tipo */
-=======
-/* Title / Type */
->>>>>>> refs/remotes/origin/main
 .event-title { 
   font-size:18px; 
   font-weight:800; 
@@ -205,7 +129,6 @@ body {
 }
 
 
-<<<<<<< HEAD
 /* =============================== */
 /*    COR DA BORDA POR RELEVÂNCIA  */
 /* =============================== */
@@ -233,38 +156,21 @@ body {
 /*     DATA (COLORIDA)             */
 /* =============================== */
 
-=======
-/* Date big */
->>>>>>> refs/remotes/origin/main
 .event-date { 
   font-size:15px; 
   font-weight:800; 
   margin-bottom:8px; 
 }
 
-<<<<<<< HEAD
-=======
-
-/* Colors by relevance */
->>>>>>> refs/remotes/origin/main
 .date-high { color:#b71c1c; }
 .date-medium { color:#c77600; }
 .date-low { color:#0077a8; }
 
-<<<<<<< HEAD
 
 /* =============================== */
 /*              BADGES             */
 /* =============================== */
 
-=======
-.event-card.date-high { border-left-color:#b71c1c; }
-.event-card.date-medium { border-left-color:#c77600; }
-.event-card.date-low { border-left-color:#0077a8; }
-
-
-/* Badges */
->>>>>>> refs/remotes/origin/main
 .badge { 
   display:inline-block; 
   padding:6px 10px; 
@@ -278,14 +184,10 @@ body {
 .badge-low { background:#00a3d7; color:#fff; }
 
 
-<<<<<<< HEAD
 /* =============================== */
 /*        BOTÕES DO CARD           */
 /* =============================== */
 
-=======
-/* Buttons footer */
->>>>>>> refs/remotes/origin/main
 .event-buttons { 
   display:flex; 
   gap:10px; 
@@ -313,10 +215,7 @@ body {
   padding:8px 10px; 
   border-radius:8px; 
   border:none; 
-<<<<<<< HEAD
   height: 40px;
-=======
->>>>>>> refs/remotes/origin/main
   font-weight:700;
 }
 
@@ -325,14 +224,10 @@ body {
 }
 
 
-<<<<<<< HEAD
 /* =============================== */
 /*         ESTADO VAZIO            */
 /* =============================== */
 
-=======
-/* No events */
->>>>>>> refs/remotes/origin/main
 .no-events { 
   text-align:center; 
   padding:40px 0; 
@@ -345,7 +240,6 @@ body {
 }
 
 
-<<<<<<< HEAD
 /* =============================== */
 /*            MODAL                */
 /* =============================== */
@@ -448,33 +342,19 @@ body {
 
   .header {
       padding: 16px;
+
   }
 
   .header .add-event-btn {
       padding: 8px 12px;
       margin-right: 8px;
-=======
-/* Responsive */
-@media (max-width:720px) {
-  .header-area { 
-    flex-direction:column; 
-    align-items:flex-start; 
-    gap:12px; 
->>>>>>> refs/remotes/origin/main
   }
 
   .event-date { 
     font-size:18px; 
   }
 
-<<<<<<< HEAD
   .modal-container {
       width: 90%;
-=======
- 
-  .header .add-event-btn {
-    margin-right: 8px;
-    padding:8px 12px;
->>>>>>> refs/remotes/origin/main
   }
 }

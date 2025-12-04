@@ -28,9 +28,14 @@ def events():
             .join(TipoEvento, DataEvento.tipo_evento_id == TipoEvento.id)
             .filter(DataEvento.user_id == current_user.id)
         )
-
+        niveis_relevancia = utils.get_relevancy_levels()
+        tipo_eventos = utils.get_event_types()
         datas = session.execute(datas_usuario).all()
-    return render_template('events.html', datas=datas)
+        
+    return render_template('events.html', 
+                           datas=datas,
+                           niveis_relevancia=niveis_relevancia,
+                           tipo_eventos=tipo_eventos)
 
 @events_bp.route('/events/add', methods=['GET', 'POST'])
 @login_required

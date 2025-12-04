@@ -12,19 +12,24 @@
         {% include "components/flash.html"%}
         <h1>Meus Eventos</h1>
 
-        <!-- BOTÃO QUE ABRE O MODAL -->
-        <button class="add-event-btn enhanced-btn" id="openModalBtn">
-            <i class="fas fa-plus"></i> Adicionar Evento
-        </button>
-    </div>
+        <div class="botoes">
+            <!-- BOTÃO QUE ABRE O MODAL -->
+            <button class="add-event-btn enhanced-btn" id="openModalBtn">
+                <i class="fas fa-plus"></i> Adicionar Evento
+            </button>
 
-    
+            <form action="{{ url_for('auth.logout') }}" method="POST">
+                <button class="add-event-btn">Logout</button>
+            </form>
+        </div>
+    </div>
 
     {% if datas %}
     <div class="events-grid extra-margin">
 
         {% for data in datas %}
         <article class="event-card" role="article" aria-labelledby="ev-{{ data.id }}-title">
+
             <header>
                 <div id="ev-{{ data.id }}-title" class="event-title">{{ data.titulo_evento }}</div>
 
@@ -64,6 +69,7 @@
                     <button type="submit" class="btn-delete">Excluir</button>
                 </form>
             </footer>
+
         </article>
         {% endfor %}
 
@@ -98,8 +104,8 @@
             <input type="date" name="data" required>
 
             <!-- TIPOS DE EVENTOS -->
-            <select name="tipo_evento_id" id="tipo_evento_id" required>
-                <option value="" selected disabled>Tipo do evento</option>
+            <select name="tipo_evento_id" required>
+                <option value="" disabled selected>Tipo do evento</option>
                 {% for tipo in tipo_eventos %}
                     <option value="{{ tipo.id }}">{{ tipo.nome }}</option>
                 {% endfor %}
@@ -107,7 +113,7 @@
 
             <!-- RELEVÂNCIA -->
             <select name="relevancia_id" required>
-                <option value="" selected disabled>Relevância</option>
+                <option value="" disabled selected>Relevância</option>
                 {% for nivel in niveis_relevancia %}
                     <option value="{{ nivel.id }}">{{ nivel.nivel }}</option>
                 {% endfor %}
