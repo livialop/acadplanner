@@ -1,28 +1,47 @@
 {% extends "base.html" %}
+{% block title %}Login — Acad Planner{% endblock %}
 
 {% block head %}
-    <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/login.css') }}">
-{% endblock head %}
-    
+<link rel="stylesheet" href="{{ url_for('static', filename='style/home.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/login.css') }}">
+{% endblock %}
+
 {% block content %}
-    <div class="box">
-        <h1>ACAD<br>PLANNER</h1>
 
-        <p>SUA AGENDA ACADÊMICA.<br>
-        ANOTE DATAS. NÃO PERCA PRAZOS. SEJA RESPONSÁVEL.</p>
+<div class="login-container">
+
+    <!-- PARTE ESQUERDA (FORMULÁRIO) -->
+    <div class="login-form-container">
+        <div class="login-card">
+
+            {% include "components/flash.html" %}
+
+            <h1 class="main-title">Bem-vindo de volta</h1>
+
+            <p class="description">
+                Entre com suas credenciais para acessar o Acad Planner.
+            </p>
+
+            <form action="{{ url_for('auth.login') }}" method="post" class="form-login">
+
+                <input type="text" name="email_or_username" placeholder="Email ou nome de usuário" required>
+                <input type="password" name="password" placeholder="Senha" required>
+
+                <button class="login-button login-btn">Entrar</button>
+
+            </form>
+
+            <p class="subtitle second-subtitle">Ainda não tem conta?</p>
+            <a href="{{ url_for('auth.register') }}">
+                <button class="login-button register-btn">Criar conta</button>
+            </a>
+
+        </div>
     </div>
-    <div class="caixa">
-        <p class="titulo">Login</p>
-        <img src="{{ url_for('static', filename='images/caixa.png') }}" class="imagem">
-        <form action="{{ url_for('auth.login') }}" method="post" class="formulario">
-        <label for="email"></label>
-        <input type="text" name="email_or_username" placeholder="Email ou nome de usuário">
 
-        <label for="senha"></label>
-        <input type="password" name="password" placeholder="Senha">
+    <!-- PARTE DIREITA (MESMA IMAGEM DA HOME) -->
+    <div class="side-image"></div>
 
-        <button class="btn">Enviar</button>
-    </form>
-    </div>
-{% endblock content %}
+</div>
+
+{% endblock %}

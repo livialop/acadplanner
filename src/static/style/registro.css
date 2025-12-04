@@ -1,89 +1,58 @@
+/* CONTAINER DO FORM */
+.form-register {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 380px;
+}
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #ffffff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100vh;
-            padding: 0 40px;
-            flex-wrap: wrap;
-        }
+/* INPUT BONITO */
+.form-register input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1.5px solid #d3d7e1;
+    background: #f8f9fc;
+    transition: 0.2s ease-in-out;
+    font-family: "Poppins", sans-serif;
+}
 
-        .box {
-            background: #2300A3;
-            color: white;
-            width: 45%;
-           padding: 320px 50px;
-            border-radius: 10px;
-            min-width: 300px;
-        }
+.form-register input:hover {
+    border-color: #b9bed0;
+}
 
-        .box h1 {
-            font-size: 90px;
-            margin: 0;
-            line-height: 80px;
-            font-weight: 900;
-        }
+.form-register input:focus {
+    outline: none;
+    border-color: #4A7DF2;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(74, 125, 242, 0.35);
+}
 
-        .box p {
-            margin-top: 40px;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-                .caixa {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 40%;
-            min-width: 280px;
-            text-align: center;
-            align-items: center;
-        }
-        .formulario input {
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            display: block;
-            margin: 10px;
-            width: 250px;
-            position: relative;
-            bottom: 280px;
-            
-        }
-        .btn {
-            width: 100px;
-            padding: 8px;
-            border: none;
-            border-radius: 8px;
-            background: #2300A3;
-            color: white;
-            font-size: 15px;
-            cursor: pointer;
-            transition: 0.2s;
-            position: relative;
-            bottom: 280px;
-            
-        }
-       .imagem {
-            width: 400px;
-            margin-top: 200px;
-            resize: -1;
-            height: 280px;
-            border-radius: 50px;
-            position: relative;
-            bottom: 10px;
-        }
-        .titulo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            position: relative;
-            top: 200px;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #2300A3;
-            font-size: 30px;
-        }
+/* TÍTULO DO FORM */
+.main-title {
+    margin-bottom: 15px !important;
+}
+
+/* BOTÕES */
+.register-btn, .login-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* SEPARADOR DE SESSÕES */
+.subtitle {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* AJUSTE PARA CENTRALIZAR TUDO DO LADO ESQUERDO */
+.login-card {
+    max-width: 380px;
+}

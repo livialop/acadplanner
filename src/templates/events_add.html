@@ -3,6 +3,7 @@
 
 {% block head %}
     <title>Adicionar evento</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style/events_add.css') }}">
 {% endblock head %}
 
 {% block content %}
@@ -11,6 +12,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
+                    {% include "components/flash.html"%}
                     <h4 class="mb-0">Adicionar Novo Evento</h4>
                 </div>
                 <div class="card-body">
@@ -19,6 +21,10 @@
                             <label for="titulo_evento" class="form-label">Título do Evento</label>
                             <input type="text" class="form-control" id="titulo_evento" name="titulo_evento" required>
                         </div>
+                        <div class="header">
+                            <h1></h1>
+                        </div>
+
 
                         <div class="mb-3">
                             <label for="data" class="form-label">Data do Evento</label>
@@ -30,7 +36,7 @@
                             <select class="form-select" id="tipo_evento_id" name="tipo_evento_id" required>
                                 <option value="" selected disabled>Selecione o tipo</option>
                                 {% for tipo in tipo_eventos %}
-                                <option value="{{ tipo.id }}">{{ tipo.nome }}</option>
+                                    <option value="{{ tipo.id }}">{{ tipo.nome }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -40,7 +46,7 @@
                             <select class="form-select" id="relevancia_id" name="relevancia_id" required>
                                 <option value="" selected disabled>Selecione a relevância</option>
                                 {% for nivel in niveis_relevancia %}
-                                <option value="{{ nivel.id }}">{{ nivel.nivel }}</option>
+                                    <option value="{{ nivel.id }}">{{ nivel.nivel }}</option>
                                 {% endfor %}
                             </select>
                         </div>

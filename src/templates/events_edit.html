@@ -2,6 +2,8 @@
 
 {% block head %}
     <title>Editar evento</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/events_edit.css') }}">
+
 {% endblock head %}
 
 {% block content %}
@@ -10,6 +12,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
+                    {% include "components/flash.html"%}
                     <h4 class="mb-0">Editar Evento</h4>
                 </div>
                 <div class="card-body">
@@ -25,6 +28,7 @@
                             <input type="date" class="form-control" id="data" name="data" 
                                    value="{{ event.data.strftime('%Y-%m-%d') if event.data }}" required>
                         </div>
+                        
 
                         <div class="mb-3">
                             <label for="tipo_evento_id" class="form-label">Tipo de Evento</label>
@@ -38,6 +42,7 @@
                                 {% endfor %}
                             </select>
                         </div>
+                         
 
                         <div class="mb-3">
                             <label for="relevancia_id" class="form-label">Nível de Relevância</label>

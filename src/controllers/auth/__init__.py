@@ -20,7 +20,7 @@ def register():
             existing_user = session.query(User).filter((User.username == username) | (User.email == email)).first()
             if existing_user:
                 flash('Usuário ou login já cadastrado.', category='error')
-                return redirect(url_for('auth.register'))
+                return redirect(url_for('auth.login'))
 
             else: # Se o user não for cadastrado
                 new_user = User(

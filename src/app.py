@@ -7,7 +7,7 @@ from config.config_app import config, start_database
 
 
 app: Flask = Flask(__name__)
-app.register_blueprint(auth_bp)
+app.register_blueprint(auth_bp, url_prefix="/auth")
 app.register_blueprint(main_bp)
 app.register_blueprint(error_bp)
 app.register_blueprint(events_bp)

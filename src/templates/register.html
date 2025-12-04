@@ -1,34 +1,45 @@
 {% extends "base.html" %}
+{% block title %}Registro — Acad Planner{% endblock %}
 
 {% block head %}
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/registro.css') }}">
-{% endblock head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/home.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/registro.css') }}">
+{% endblock %}
 
 {% block content %}
-    <div class="box">
-        <h1>ACAD<br>PLANNER</h1>
 
-        <p>SUA AGENDA ACADÊMICA.<br>
-        ANOTE DATAS. NÃO PERCA PRAZOS. SEJA RESPONSÁVEL.</p>
+<div class="login-container">
+
+    <!-- PARTE ESQUERDA (FORMULÁRIO) -->
+    <div class="login-form-container">
+        <div class="login-card">
+            
+            <h1 class="main-title">Crie sua conta</h1>
+
+            <p class="description">
+                Preencha seus dados para começar a usar o Acad Planner.
+            </p>
+
+            <form  action="{{ url_for('auth.register')}}" method="post" class="form-register">
+
+                <input type="text" name="name" placeholder="Nome completo" required>
+                <input type="text" name="username" placeholder="Nome de usuário" required>
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="password" name="password" placeholder="Senha" required>
+
+                <button class="login-button register-btn">Criar conta</button>
+            </form>
+
+            <p class="subtitle second-subtitle">Já tem conta?</p>
+            <a href="{{ url_for('auth.login') }}">
+                <button class="login-button login-btn">Fazer login</button>
+            </a>
+        </div>
     </div>
-    <div class="caixa">
-        <p class="titulo">Registro</p>
-        <img src="{{ url_for('static', filename='images/caixa.png') }}"  class="imagem">
-        <form action="{{ url_for('auth.register')}}" method="post" class="formulario">
-            
-            <input type="text" name="name" placeholder="Nome e Sobrenome" required>
 
-            
-            <input type="text" name="username" placeholder="Nome de Usuário" required>
+    <!-- PARTE DIREITA (IMAGEM IGUAL À HOME) -->
+    <div class="side-image"></div>
 
-           
-            <input type="email" name="email" placeholder="Email" required>
+</div>
 
-            
-            <input type="password" name="password" placeholder="Senha" required>
-
-            <button class="btn">Enviar</button>
-        </form>
-    </div>
-{% endblock content %}
+{% endblock %}

@@ -1,133 +1,107 @@
+/* Reset e fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #ffffff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100vh;
-            padding: 0 40px;
-            flex-wrap: wrap;
-        }
+/* Tela inteira */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-color: #4a7df2; /* fundo azul */
+}
 
-        .box {
-            background: #2300A3;
-            color: white;
-            width: 45%;
-            padding: 320px 50px;
-            border-radius: 10px;
-            min-width: 300px;
-        }
+/* Container principal */
+.login-container {
+    display: flex;
+    width: 90%;
+    max-width: 1100px;
+    height: 90%;
+    max-height: 700px;
+    border-radius: 30px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
 
-        .box h1 {
-            font-size: 90px;
-            margin: 0;
-            line-height: 80px;
-            font-weight: 900;
-        }
+/* Painel esquerdo (textos e botões) */
+.login-form-container {
+    flex: 1;
+    min-width: 60%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+}
 
-        .box p {
-            margin-top: 40px;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
+/* Card interno com textos */
+.login-card {
+    width: 100%;
+    max-width: 400px;
+}
 
-        .right-area {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-            width: 40%;
-            min-width: 280px;
-        }
+/* Título principal */
+.main-title {
+    font-size: 45px;
+    font-weight: 700;
+    color: #34495e;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
 
-        .btn {
-            width: 200px;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            background: #2300A3;
-            color: white;
-            font-size: 15px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
+/* Descrição */
+.description {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 35px;
+    line-height: 1.4;
+}
 
-        .btn:hover {
-            background: #3600d1;
-        }
+/* Subtítulos */
+.subtitle {
+    font-size: 16px;
+    color: #34495e;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
 
-        .subtitle {
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-            color: #2300A3;
-        }
+.second-subtitle {
+    margin-top: 40px;
+}
 
-        @media (max-width: 1024px) {
-            body {
-                padding: 20px;
-                gap: 40px;
-            }
+/* Botões */
+.login-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 8px 15px rgba(230,126,34,0.3);
+}
 
-            .box h1 {
-                font-size: 70px;
-                line-height: 65px;
-            }
+.login-button:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+}
 
-            .box p {
-                font-size: 13px;
-            }
 
-            .right-area {
-                width: 45%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-                justify-content: flex-start;
-                height: auto;
-                padding: 20px;
-                text-align: center;
-            }
-
-            .box {
-                width: 100%;
-                padding: 40px 20px;
-            }
-
-            .box h1 {
-                font-size: 60px;
-                line-height: 55px;
-            }
-
-            .right-area {
-                width: 100%;
-                margin-top: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .box h1 {
-                font-size: 45px;
-                line-height: 45px;
-            }
-
-            .box p {
-                font-size: 12px;
-            }
-
-            .btn {
-                width: 160px;
-                padding: 10px;
-                font-size: 14px;
-            }
-
-            .subtitle {
-                font-size: 13px;
-            }
-        }
+.side-image {
+    flex: 1.2; 
+    min-width: 45%; 
+    background-image: url("/static/images/acaderno_planner.png"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
