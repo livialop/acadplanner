@@ -25,10 +25,3 @@ def get_user_events(user_id):
     with Session(engine) as session:
         datas: List[DataEvento] = session.query(DataEvento).filter(DataEvento.user_id == user_id).order_by(asc(DataEvento.data)).all()
     return datas
-
-
-'''def make_session():
-    from sqlalchemy.orm import sessionmaker
-    Session = sessionmaker(bind=engine)
-    return Session()'''
-# preciso verificar como funcionaria essa função no código e se ela tá certa

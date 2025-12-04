@@ -26,6 +26,7 @@ def events():
             )
             .join(Relevancia, DataEvento.relevancia_id == Relevancia.id)
             .join(TipoEvento, DataEvento.tipo_evento_id == TipoEvento.id)
+            .filter(DataEvento.user_id == current_user.id)
         )
 
         datas = session.execute(datas_usuario).all()

@@ -18,12 +18,13 @@
         </button>
     </div>
 
+    
+
     {% if datas %}
     <div class="events-grid extra-margin">
 
         {% for data in datas %}
         <article class="event-card" role="article" aria-labelledby="ev-{{ data.id }}-title">
-
             <header>
                 <div id="ev-{{ data.id }}-title" class="event-title">{{ data.titulo_evento }}</div>
 
@@ -63,7 +64,6 @@
                     <button type="submit" class="btn-delete">Excluir</button>
                 </form>
             </footer>
-
         </article>
         {% endfor %}
 
