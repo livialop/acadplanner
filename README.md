@@ -1,43 +1,110 @@
 # AcadPlanner
-Sistema para salvar datas de provas, trabalhos e eventos acadêmicos.
 
-# Informações relevantes sobre o repositório
+Sistema de planejamento acadêmico que funciona como um calendário para guardar provas, seminários, projetos e outros eventos acadêmicos. O sistema conta com um recurso de níveis de relevância para ajudar na organização e priorização das tarefas.
 
-## Como executar a aplicação
-* Clone este repositório na sua máquina com o comando 
-```cmd
-git clone https://github.com/livialop/acadplanner.git
-```
-* Abra o repositório.
-* Navegue até a pasta `src` com o comando `cd src/`.
-* Crie o ambiente virtual e ative:
+---
+
+## 📁 Navegação do Repositório
+
+`/docs`               → Documentação e anotações do projeto  
+`/src`                → Código principal da aplicação  
+`/src/controllers`  → Rotas (views/controllers Flask)  
+`/src/static`       → Arquivos estáticos (CSS, imagens)  
+`/src/templates`    → Páginas HTML (Jinja2)  
+`/src/utils`        → Funções auxiliares usadas repetidamente no código  
+`/src/config`       → Configuração da aplicação, database e inserção de dados das tabelas domínio  
+`/src/models`       → Scripts em SQLAlchemy do banco de dados  
+
+
+---
+
+## 🌐 Rotas da Aplicação
+
+| Rota | Descrição |
+|------|-----------|
+| `/` | Página inicial |
+| `/user` | Perfil do usuário |
+| `/user/edit` | Editar perfil |
+| `/events` | Listar eventos |
+| `/events/add` | Adicionar novo evento |
+| `/events/edit` | Editar evento |
+| `/events/delete` | Deletar evento |
+| `/register` | Página de registro |
+| `/login` | Página de login |
+| `/logout` | Fazer logout |
+| `/404` | Página não encontrada |
+| `/401` | Não autorizado |
+| `/500` | Erro interno do servidor |
+
+---
+
+## 📦 Requisitos
+
+- **Python** 3.10+
+
+
+## 🚀 Como Rodar o Projeto
+
+<details>
+<summary>Windows</summary>
+
+### No Windows
+
+**1.** Crie o ambiente virtual:
 ```cmd
 python -m venv env
+```
+
+**2.** Ative o ambiente virtual:
+```cmd
 .\env\Scripts\activate
 ```
-> [!NOTE]
-> Estou utilizando o Windows 11. Para usuários Linux, troque o comando por: `python3 -m venv env` e `source env/bin/activate`. Para outras versões do Windows que não seja a 11, utilize `py -m venv env`.
-* Instale as dependências do projeto com:
+
+**3.** Instale as dependências:
 ```cmd
 pip install -r requirements.txt
 ```
-* Inicialize o seu servidor MySQL.
-> [!IMPORTANT]
-> Cheque as suas configurações no MySQL e, se precisar, troque a configuração no arquivo /src/config/config_database.py
-* Localizado no diretório `src`, execute o comando `python app.py`.
 
-## Como navegar pelo repositório
-* No diretório `/src` está contido todos os códigos da aplicação. 
-    * `/src/config` -> Configuração do banco de dados.
-    * `/src/controllers` -> Blueprints da aplicação.
-        * `auth` -> Blueprint com rotas de login, registro e logout.
-        * `error` -> Blueprint com rotas de error handlers (404, etc). 
-        * `main` -> Blueprint com a rota home da aplicação.
-        * `events` -> Blueprint com rotas das datas de eventos: editar, adicionar, excluir e visualizar eventos.
-> [!IMPORTANT]
-> Se precisar mudar alguma coisa referente a porta do banco de dados, user, host e senha, é no arquivo `/src/config/__init__.py` que você deve fazer a alteração. 
+**4.** Configure o banco de dados (se necessário, altere as credenciais em `src/config/config_database.py`)
 
-* O banco de dados está contido no diretório `/model`
+**5.** Execute a aplicação:
+```cmd
+python app.py
+```
+</details>
+
+<details>
+<summary>Linux</summary>
+
+### No Linux
+
+**1.** Crie o ambiente virtual:
+```bash
+python3 -m venv env
+```
+
+**2.** Ative o ambiente virtual:
+```bash
+source env/bin/activate
+```
+
+**3.** Instale as dependências:
+```bash
+pip install -r requirements.txt
+```
+
+**4.** Configure o banco de dados (se necessário, altere as credenciais em `src/config/config_database.py`)
+
+**5.** Execute a aplicação:
+```bash
+python app.py
+```
+</details>
+
+### ⚙️ Configuração do Banco de Dados
+
+> [!IMPORTANT]
+> Se você precisar alterar a **porta, usuário, host ou senha** do MySQL (caso for usar), edite o arquivo `src/config/config_database.py` com as suas credenciais.
 * O diretório `/static` possui subdiretórios referentes ao estilo (`style`) e imagens.
 * O diretório `/templates` é onde está localizado os arquivos HTML da aplicação.
 * O arquivo `app.py` é o aplicativo onde todos os Blueprints são registrados e assim, a aplicação é executada.

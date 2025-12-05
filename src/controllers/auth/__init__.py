@@ -40,6 +40,7 @@ def register():
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
+    # Rota para realizar o login do usuário.
     if request.method == 'POST':
         email_or_username = request.form.get('email_or_username')
         password = request.form.get('password')
@@ -52,7 +53,7 @@ def login():
             if user and check_password_hash(user.password, password):
                 login_user(user)
                 flash('Login realizado com sucesso!', category='success')
-                return redirect(url_for('events.events')) # ISSO PODE MUDAR POSTERIORMENTE. VERIFICAR O NOME DA ROTA.
+                return redirect(url_for('events.events')) 
 
             else:
                 flash('Credenciais inválidas. Tente novamente.', category='error')
@@ -65,6 +66,7 @@ def login():
 @auth_bp.route('/logout', methods=['POST'])
 @login_required
 def logout():
+    # Rota para logout do usuário.
     logout_user()
     flash('Você saiu da sua conta.', category='success')
     return redirect(url_for('main.home'))
