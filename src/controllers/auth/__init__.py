@@ -47,7 +47,7 @@ def login():
         # O operador | funciona como um OU -> no bd, ele pega o que encontrar primeiro: OU o email OU o user do usuario
         Session = sessionmaker(bind=engine)
         with Session() as session:
-            user = session.query(User).filter((User.email == email_or_username) | (User.username == email_or_username)).first()
+            user = session.query(User).filter((User.email == email_or_username) or (User.username == email_or_username)).first()
             
             if user and check_password_hash(user.password, password):
                 login_user(user)

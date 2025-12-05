@@ -1,0 +1,92 @@
+<!-- user_edit.html -->
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/user.css') }}">
+{% endblock head %}
+
+{% block content %}
+<div class="main-content">
+    <div class="header">
+        {% include "components/flash.html" %}
+        <h1>Editar Perfil</h1>
+        
+        <div class="botoes">
+            <a href="{{ url_for('user.user')}}"><button class="add-event-btn">Voltar</button></a>
+            
+            <form action="{{ url_for('auth.logout') }}" method="POST">
+                <button type="submit" class="add-event-btn">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="user-form">
+        <h2 style="color: #2300A3; margin-bottom: 25px; font-size: 24px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;">
+            <i class="fas fa-user-edit"></i> Editar Informações
+        </h2>
+        
+        <form method="POST" action="{{ url_for('user.user_edit', user_id=current_user.id) }}">
+            <div class="form-group">
+                <label class="form-label" for="name">Nome Completo *</label>
+                <input type="text" 
+                       id="name" 
+                       name="name" 
+                       class="form-input" 
+                       value="{{ user_info.name }}" 
+                       required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="username">Nome de Usuário *</label>
+                <input type="text" 
+                       id="username" 
+                       name="username" 
+                       class="form-input" 
+                       value="{{ user_info.username }}" 
+                       required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="email">E-mail *</label>
+                <input type="email" 
+                       id="email" 
+                       name="email" 
+                       class="form-input" 
+                       value="{{ user_info.email }}" 
+                       required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="actual_password">Senha Atual *</label>
+                <input type="password" 
+                       id="actual_password" 
+                       name="actual_password" 
+                       class="form-input" 
+                       placeholder="Digite sua senha atual para confirmar as alterações" 
+                       required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="new_password">Nova Senha (opcional)</label>
+                <input type="password" 
+                       id="new_password" 
+                       name="new_password" 
+                       class="form-input" 
+                       placeholder="Deixe em branco para manter a senha atual">
+                <p class="password-note">Preencha apenas se desejar alterar sua senha.</p>
+            </div>
+            
+            <div class="form-actions">
+                <a href="{{ url_for('user.user') }}" class="btn-secondary">
+                    <i class="fas fa-times"></i> Cancelar
+                </a>
+                
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-save"></i> Salvar Alterações
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
