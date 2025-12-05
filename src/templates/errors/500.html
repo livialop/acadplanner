@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>500 — Erro interno do servidor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/500.css') }}">
+
+{% endblock %}
+
+{% block content %}
+<div class="error-page">
+  <div>
+    <h1 class="error-code">500</h1>
+    <p class="error-message">Ocorreu um erro no servidor. Tente novamente mais tarde. Se o problema persistir, contate o suporte.</p>
+    <a class="btn" href="{{ url_for('main.home') }}">Voltar para a página inicial</a>
+  </div>
+</div>
+{% endblock %}
