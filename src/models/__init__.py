@@ -8,7 +8,11 @@ from flask_login import UserMixin
 from typing import List
 from datetime import date
 
-engine = create_engine(f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}")
+# Para usar com MySQL, tire o '#' do comentário abaixo
+#engine = create_engine(f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}") 
+
+# Com SQLite
+engine = create_engine("sqlite:///acadplanner.db")
 
 # Cria o banco de dados caso não exista
 if not database_exists(engine.url):
