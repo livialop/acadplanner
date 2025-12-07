@@ -42,35 +42,42 @@ def user_edit(user_id: int):
         new_password = request.form.get('new_password')
 
         with Session(engine) as session:
-            verify_username = session.query(User).filter((User.username == username)).first()
-            if verify_username:
-                flash('Esse username já está cadastrado. Escolha outro, por favor.', category='error')
-                return redirect(url_for('user.user'))
-            
-            verify_email = session.query(User).filter((User.email == email)).first()
-            if verify_email:
-                flash('Esse email já está cadastrado. Por favor, escolha outro.', category='error')
-                return redirect(url_for('user.user'))
-            
-            else:
-                if check_password_hash(User.password, actual_password):
-                    user_edit = session.query(User).where(User.id == current_user.id).first()
-                    user_edit.name = name
-                    user_edit.username = username
-                    user_edit.email = email
+            try:
+                user_db = session.query(User).filter(User.id == current_user.id).first()
+                
+                # Verifica se o username é de outro usuário.
+                verify_username = session.query(User).filter(User.username == username, User.id != current_user.id).first()
+                if verify_username:
+                    flash('Esse username já está cadastrado. Escolha outro, por favor.', category='error')
+                    return redirect(url_for('user.user_edit', user_id=current_user.id))
+                
+                verify_email = session.query(User).filter(User.email == email, User.id != current_user.id).first()
+                if verify_email:
+                    flash('Esse email já está cadastrado. Por favor, escolha outro.', category='error')
+                    return redirect(url_for('user.user_edit', user_id=current_user.id))
+                
+                if not check_password_hash(user_db.password, actual_password):
+                    flash('Senha incorreta.', category='error')
+                    return redirect(url_for('user.user_edit', user_id=current_user.id))
+                
+                if check_password_hash(user_db.password, actual_password):
+                    user_db.name = name
+                    user_db.username = username
+                    user_db.email = email
+                    
                     # Se o usuário tiver mudado o campo de senha
-                    if (new_password is None) or (new_password == ""):
-                        user_edit.password = new_password
+                    if new_password and new_password.strip() != "":
+                        user_db.password = generate_password_hash(new_password)
                     # Caso não tenha mudado, a senha permanece.
-
                     session.commit()
-                    session.close()
 
                     flash('Informações editadas com sucesso!', category='success')
                     return redirect(url_for('user.user'))
-                else:
-                    flash('Senha incorreta.', category='error')
-                    return redirect(url_for('user.user'))
+            except Exception as e:
+                session.rollback()
+                print("Erro ao editar usuário:", e)
+                flash('Ocorreu um erro ao atualizar suas informações.', category='error')
+                return redirect(url_for('user.user'))
                 
     if request.method == 'GET':
         # Se a request for GET, ele pega todas as informações do usuário logado no momento e retorna para o front

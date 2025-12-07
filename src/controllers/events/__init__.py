@@ -5,6 +5,7 @@ from models import engine
 from sqlalchemy import select, desc
 from sqlalchemy.orm import Session
 import utils
+from datetime import datetime
 
 events_bp = Blueprint('events', __name__, template_folder='templates', static_folder='static')
 
@@ -42,13 +43,15 @@ def events():
 def events_add():
     if request.method == 'POST':
         titulo_evento = request.form.get('titulo_evento')
-        data = request.form.get('data')
+        data_str = request.form.get('data')
         relevancia_id = request.form.get('relevancia_id')
         tipo_evento_id = request.form.get('tipo_evento_id')
+        
+        # Convertendo data, tava dando erro na hora de salvar no banco.
+        data = datetime.strptime(data_str, "%Y-%m-%d").date()
 
-        with engine.connect() as conn:
+        with Session(engine) as session:
             try:
-                session = Session(engine)
                 new_event = DataEvento(
                     titulo_evento=titulo_evento,
                     data=data,
@@ -59,30 +62,30 @@ def events_add():
 
                 session.add(new_event)
                 session.commit()
-                session.close()
-                
-                flash("Data adicionada com sucesso!", category='success')
+
+                flash("Evento adicionado com sucesso!", category='success')
                 return redirect(url_for('events.events'))
             
             except Exception as e:
-                flash("Não foi possível adicionar a data. Tente novamente.", category="error")
+                session.rollback()
+                flash("Erro ao adicionar evento.", category="error")
+                print(e)
+                return redirect(url_for('events.events'))
 
-    if request.method == "GET":
+    if request.method == 'GET':
         niveis_relevancia = utils.get_relevancy_levels()
         tipo_eventos = utils.get_event_types()
-        
-        return render_template('events_add.html', 
-                niveis_relevancia=niveis_relevancia,
-                tipo_eventos=tipo_eventos)
+        return render_template('events_add.html',
+                            niveis_relevancia=niveis_relevancia,
+                            tipo_eventos=tipo_eventos)
 
 
 
 @events_bp.route('/events/delete/<int:event_id>', methods=['POST'])
 @login_required
 def events_delete(event_id):
-    with engine.connect() as conn:
+    with Session(engine) as session:
         try:
-            session = Session(engine)
             event_delete = session.get(DataEvento, event_id)
             session.delete(event_delete)
             session.commit()
@@ -90,6 +93,7 @@ def events_delete(event_id):
             flash("Data deletada com sucesso!", category='success')
             return redirect(url_for('events.events'))
         except Exception as e:
+            session.rollback()
             flash("Não foi possível deletar a data. Tente novamente.", category="error")
             return redirect(url_for('events.events'))
 
@@ -100,13 +104,15 @@ def events_delete(event_id):
 def events_edit(event_id):
     if request.method == "POST":
         titulo_evento = request.form.get('titulo_evento')
-        data = request.form.get('data')
+        data_str = request.form.get('data')
         relevancia_id = request.form.get('relevancia_id')
         tipo_evento_id = request.form.get('tipo_evento_id')
 
-        with engine.connect() as conn:
+        # Convertendo data novamente
+        data = datetime.strptime(data_str, "%Y-%m-%d").date()
+
+        with Session(engine) as session:
             try:
-                session = Session(engine)
                 event_edit = session.query(DataEvento).where(DataEvento.id == event_id).first()
                 event_edit.titulo_evento = titulo_evento
                 event_edit.data = data
@@ -114,12 +120,12 @@ def events_edit(event_id):
                 event_edit.tipo_evento_id = tipo_evento_id
 
                 session.commit()
-                session.close()
                 
                 flash("Data editada com sucesso!", category='success')
                 return redirect(url_for('events.events'))
             
             except Exception as e:
+                session.rollback()
                 flash("Não foi possível editar a data. Tente novamente.", category="error")
                 return redirect(url_for('events.events'))
     
